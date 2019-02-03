@@ -6,7 +6,7 @@
 #    By: bcozic <bcozic@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 15:35:06 by bcozic            #+#    #+#              #
-#    Updated: 2019/02/03 15:36:25 by bcozic           ###   ########.fr        #
+#    Updated: 2019/02/03 18:51:24 by bcozic           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,15 +34,15 @@ obj/%.o: %.c
 
 $(NAME) : $(OBJ)
 	gcc -o $(NAME) $(OBJ)
-	@echo "$(GREEN)$(NAME) OK$(NO_COLOR)"
+	@echo "$(GREEN)$(NAME) C OK$(NO_COLOR)"
 
 clean :
 	rm -f $(OBJ)
-	@echo "$(RED)$(NAME) obj Deleted$(NO_COLOR)"
+	@echo "$(RED)$(NAME) C obj Deleted$(NO_COLOR)"
 
 fclean : clean
 	rm -f $(NAME)
-	@echo "$(RED)$(NAME) Deleted$(NO_COLOR)"
+	@echo "$(RED)$(NAME) C Deleted$(NO_COLOR)"
 
 re : fclean all
 	

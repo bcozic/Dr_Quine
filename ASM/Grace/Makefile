@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: bcozic <bcozic@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/02/03 15:34:42 by bcozic            #+#    #+#              #
-#    Updated: 2019/02/03 18:51:44 by bcozic           ###   ########.fr        #
+#    Created: 2018/03/11 14:46:09 by bcozic            #+#    #+#              #
+#    Updated: 2019/02/03 22:22:04 by bcozic           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Sully
+NAME = Grace
 
 NO_COLOR =\x1b[0m
 
@@ -18,36 +18,33 @@ GREEN =\x1b[32;01m
 
 RED =\x1b[31;01m
 
-CFLAGS = -Wall -Wextra -Werror
+SRC = Grace.s
 
-SRC = Sully.c
+FILES = Grace_kid.s
 
-FILES = Sully_0.c Sully_0 Sully_1.c Sully_1 Sully_2.c Sully_2 Sully_3.c\
-		Sully_3 Sully_4.c Sully_4
-
-OBJ = $(addprefix obj/, $(SRC:.c=.o))
+OBJ = $(addprefix obj/, $(SRC:.s=.o))
 
 all : obj $(NAME)
 
 obj :
 	@mkdir -p obj
 
-obj/%.o: %.c
-	gcc $(CFLAGS) -c $< -o $@
+obj/%.o: %.s
+	nasm -f macho64 $< -o $@
 
 $(NAME) : $(OBJ)
-	gcc -o $(NAME) $(OBJ)
-	@echo "$(GREEN)$(NAME) C OK$(NO_COLOR)"
+	gcc -lSystem -o $(NAME) $(OBJ)
+	@echo "$(GREEN)$(NAME) ASM OK$(NO_COLOR)"
 
 clean :
 	rm -f $(OBJ)
-	@echo "$(RED)$(NAME) C obj Deleted$(NO_COLOR)"
+	@echo "$(RED)$(NAME) ASM obj Deleted$(NO_COLOR)"
 
 fclean : clean
 	rm -f $(NAME)
 	rm -f $(FILES)
-	@echo "$(RED)$(NAME) C and $(FILES) Deleted$(NO_COLOR)"
+	@echo "$(RED)$(NAME) ASM Deleted$(NO_COLOR)"
 
 re : fclean all
-	
+
 .PHONY : all obj clean fclean re

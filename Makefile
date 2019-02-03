@@ -6,43 +6,34 @@
 #    By: bcozic <bcozic@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 15:35:13 by bcozic            #+#    #+#              #
-#    Updated: 2019/02/03 18:46:27 by bcozic           ###   ########.fr        #
+#    Updated: 2019/02/03 18:48:07 by bcozic           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-all : colleen grace sully
+all : c asm
 
-colleen :
-	@make -C Colleen
+c :
+	@make -C C
 
-grace :
-	@make -C Grace
+asm :
+	@make -C ASM
 
-sully :
-	@make -C Sully
+clean : c_clean asm_clean
 
-clean : colleen_clean grace_clean sully_clean
+c_clean :
+	@make -C C clean
 
-colleen_clean :
-	@make -C Colleen clean
+asm_clean :
+	@make -C ASM clean
 
-grace_clean :
-	@make -C Grace clean
+fclean : c_fclean asm_fclean
 
-sully_clean :
-	@make -C Sully clean
+c_fclean :
+	@make -C C fclean
 
-fclean : colleen_fclean grace_fclean sully_fclean
-
-colleen_fclean :
-	@make -C Colleen fclean
-
-grace_fclean :
-	@make -C Grace fclean
-
-sully_fclean :
-	@make -C Sully fclean
+asm_fclean :
+	@make -C ASM fclean
 
 re : fclean all
 	
-.PHONY : all colleen grace sully clean colleen_clean grace_clean sully_clean fclean colleen_fclean grace_fclean sully_fclean re
+.PHONY : all c asm clean c_clean asm_clean fclean c_fclean asm_fclean re
