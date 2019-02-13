@@ -5,44 +5,47 @@
 #                                                     +:+ +:+         +:+      #
 #    By: bcozic <bcozic@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/02/03 15:35:13 by bcozic            #+#    #+#              #
-#    Updated: 2019/02/08 10:23:33 by bcozic           ###   ########.fr        #
+#    Created: 2018/03/11 14:46:09 by bcozic            #+#    #+#              #
+#    Updated: 2019/02/08 10:22:34 by bcozic           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-all : colleen grace sully
+NAME = Sully
 
-colleen :
-	@make -C Colleen
+NO_COLOR =\x1b[0m
 
-grace :
-	@make -C Grace
+GREEN =\x1b[32;01m
 
-sully :
-	@make -C Sully
+RED =\x1b[31;01m
 
-clean : colleen_clean grace_clean sully_clean
+SRC = Sully.s
 
-colleen_clean :
-	@make -C Colleen clean
+FILES = Sully_0.s Sully_0 Sully_1.s Sully_1 Sully_2.s Sully_2 Sully_3.s\
+		Sully_3 Sully_4.s Sully_4
 
-grace_clean :
-	@make -C Grace clean
+OBJ = $(addprefix obj/, $(SRC:.s=.o))
 
-sully_clean :
-	@make -C Sully clean
+all : obj $(NAME)
 
-fclean : colleen_fclean grace_fclean sully_fclean
+obj :
+	@mkdir -p obj
 
-colleen_fclean :
-	@make -C Colleen fclean
+obj/%.o: %.s
+	nasm -f macho64 $< -o $@
 
-grace_fclean :
-	@make -C Grace fclean
+$(NAME) : $(OBJ)
+	gcc -lSystem -o $(NAME) $(OBJ)
+	@echo "$(GREEN)$(NAME) ASM OK$(NO_COLOR)"
 
-sully_fclean :
-	@make -C Sully fclean
+clean :
+	rm -rf obj
+	@echo "$(RED)$(NAME) ASM obj Deleted$(NO_COLOR)"
+
+fclean : clean
+	rm -f $(NAME)
+	rm -f $(FILES)
+	@echo "$(RED)$(NAME) ASM Deleted$(NO_COLOR)"
 
 re : fclean all
-	
-.PHONY : all colleen grace sully clean colleen_clean grace_clean sully_clean fclean colleen_fclean grace_fclean sully_fclean re
+
+.PHONY : all obj clean fclean re
