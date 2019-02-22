@@ -6,7 +6,7 @@
 #    By: bcozic <bcozic@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 15:34:42 by bcozic            #+#    #+#              #
-#    Updated: 2019/02/13 13:39:46 by bcozic           ###   ########.fr        #
+#    Updated: 2019/02/22 17:42:53 by bcozic           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRC = Sully.hs
 
 FILES = Sully_0.hs Sully_0 Sully_0.hi Sully_0.o Sully_1.hs Sully_1 Sully_1.hi\
 		Sully_1.o Sully_2.hs Sully_2 Sully_2.hi Sully_2.o Sully_3.hs Sully_3\
-		Sully_3.hi Sully_3.o Sully_4.hs Sully_4 Sully_4.hi Sully_4.o
+		Sully_3.hi Sully_3.o Sully_4.hs Sully_4 Sully_4.hi Sully_4.o Sully_5.hs\
+		Sully_5 Sully_5.hi Sully_5.o
 
 OBJ = $(SRC:.hs=.o) $(SRC:.hs=.hi)
 

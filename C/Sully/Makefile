@@ -6,7 +6,7 @@
 #    By: bcozic <bcozic@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/03 15:34:42 by bcozic            #+#    #+#              #
-#    Updated: 2019/02/03 18:51:44 by bcozic           ###   ########.fr        #
+#    Updated: 2019/02/22 14:53:47 by bcozic           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = Sully.c
 
 FILES = Sully_0.c Sully_0 Sully_1.c Sully_1 Sully_2.c Sully_2 Sully_3.c\
-		Sully_3 Sully_4.c Sully_4
+		Sully_3 Sully_4.c Sully_4 Sully_5.c Sully_5
 
 OBJ = $(addprefix obj/, $(SRC:.c=.o))
 

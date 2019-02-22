@@ -6,7 +6,7 @@
 #    By: bcozic <bcozic@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/11 14:46:09 by bcozic            #+#    #+#              #
-#    Updated: 2019/02/14 13:24:26 by bcozic           ###   ########.fr        #
+#    Updated: 2019/02/22 15:06:15 by bcozic           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ RED =\x1b[31;01m
 SRC = Sully.s
 
 FILES = Sully_0.s Sully_0 Sully_1.s Sully_1 Sully_2.s Sully_2 Sully_3.s\
-		Sully_3 Sully_4.s Sully_4
+		Sully_3 Sully_4.s Sully_4 Sully_5.s Sully_5
 
 OBJ = $(addprefix obj/, $(SRC:.s=.o))
 
